@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
-interface Product {
+export interface Product {
   id: number;
   name: string;
   description: string;
@@ -12,13 +12,13 @@ interface Product {
 
 export interface CounterState {
   value: number;
-  likeIds: string[];
+  likeIds: number[];
   products: Product[];
   isfilterLikes: boolean;
 }
 
 const initialState: CounterState = {
-  value: 0,
+  value: 1,
   likeIds: [],
   isfilterLikes: false,
   products: [],
@@ -41,7 +41,7 @@ export const productSlice = createSlice({
     increment: (state) => {
       state.value += 1;
     },
-    changeLike: (state, action: PayloadAction<string>) => {
+    changeLike: (state, action: PayloadAction<number>) => {
       const index = state.likeIds.findIndex((id) => id === action.payload);
       if (index === -1) {
         state.likeIds.push(action.payload);
