@@ -40,10 +40,10 @@ const EmblaProductCarousel = (props:EmblaCarouselProps) => {
       <div className={stylesEmbla.embla__viewport} ref={emblaRef}>
         <div  className={stylesEmbla.embla__container}>
           {showProducts.map((product,index) => (
-            <div className='w-full'>
+            <div className='w-full' key={index}>
 
             <ProductCard
-              key={index}
+              
               
               product={product}
               isLiked={productCatalog.likeIds.includes(product.id)}

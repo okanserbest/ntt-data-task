@@ -11,7 +11,7 @@ const ProductGrupHeader = () => {
     
     useEffect(() => {
         dispatch(fetchLikes());
-      }, []);
+      }, [dispatch]);
 
     return (
         <div className="flex justify-between pt-10">
