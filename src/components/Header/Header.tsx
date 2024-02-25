@@ -5,7 +5,7 @@ const selectOptionStyle = "bg-blue-800 text-white textarea-md";
 const Header = () => {
   return (
     <header>
-      <div className="  max-w-6xl mx-auto grid grid-cols-2  md:grid-cols-custom pt-7 px-3">
+      <div className="  max-w-6xl mx-auto grid grid-cols-2  md:grid-cols-custom pt-7 pb-5 px-3">
         <div className="self-center  md:place-self-center col-span-1 mr-3 min-w-[183px]">
           <Image src={nttdata} alt="logo" width={183} height={24} />
         </div>

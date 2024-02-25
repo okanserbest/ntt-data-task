@@ -61,7 +61,7 @@ const MegaMenu = () => {
   console.log("newMenuItems", newMenuItems);
 
   return (
-    <div className="hidden md:flex flex-col">
+    <div className="hidden md:flex flex-col md:pb-5">
       <div className="divider "></div>
       <div className="max-w-6xl mx-auto flex flex-row justify-between w-full ">
         {newMenuItems.map((item, index) => (

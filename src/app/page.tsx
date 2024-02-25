@@ -1,6 +1,7 @@
 import EmblaCarousel from "@/components/Carosel/carosel";
 import Header from "@/components/Header/Header";
 import MegaMenu from "@/components/MegaMenu/MegaMenu";
+import ProductGrup from "@/components/ProductGrup/ProductGrup";
 import Image from "next/image";
 
 export default function Home() {
@@ -12,6 +13,8 @@ export default function Home() {
       <Header />
       <MegaMenu />
       <EmblaCarousel slides={SLIDES} options={OPTIONS} />
+      <ProductGrup />
+      
     </main>
   );
 }
