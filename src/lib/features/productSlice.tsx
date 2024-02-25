@@ -30,7 +30,6 @@ export const fetchLikes = createAsyncThunk("counter/fetchLikes", async () => {
     "https://honey-badgers-ecommerce.glitch.me/products"
   );
   const data = await response.json();
-  console.log("data", data);
   return data;
 });
 

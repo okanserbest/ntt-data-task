@@ -4,25 +4,30 @@ import Image from 'next/image'
 import { EmblaOptionsType } from 'embla-carousel'
 import { DotButton, useDotButton } from './EmblaCarouselDotButton'
 import stylesEmbla from './embla.module.css';
-import slider1 from "@/resources/slider/slider1.png";
-import slider2 from "@/resources/slider/slider2.png";
-import slider3 from "@/resources/slider/slider3.png";
-import slider4 from "@/resources/slider/slider4.png";
 
 const options = {};
 
-const sliderImages = [
-    slider1, // Bu yolları projenize göre güncelleyin
-    slider2,
-    slider3,
-    slider4,
-  ];
-
 import useEmblaCarousel from 'embla-carousel-react'
+import { Product } from '@/lib/features/productSlice';
+import ProductCard from '../ProductCard';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/lib/store';
 
 
+export type EmblaCarouselProps = {
+}
 
-const EmblaCarousel: React.FC = (props) => {
+const EmblaProductCarousel = (props:EmblaCarouselProps) => {
+  // const {products} = props;
+
+  const productCatalog = useSelector((state: RootState) => state.product);
+
+  // first 10 products
+  const products = productCatalog.products.slice(0, productCatalog.value * 4);
+
+  const showProducts = productCatalog.isfilterLikes
+    ? products.filter((product) => productCatalog.likeIds.includes(product.id))
+    : products;
 
   const [emblaRef, emblaApi] = useEmblaCarousel(options)
 
@@ -34,17 +39,23 @@ const EmblaCarousel: React.FC = (props) => {
     <section  className={stylesEmbla.embla} >
       <div className={stylesEmbla.embla__viewport} ref={emblaRef}>
         <div  className={stylesEmbla.embla__container}>
-          {sliderImages.map((image,index) => (
-            <div className={stylesEmbla.embla__slide} key={index}>
-            <Image className={stylesEmbla.embla__slide__img} src={sliderImages[index]} alt="slider1"  width={1440} height={550} />
-            </div>
+          {showProducts.map((product,index) => (
+            <div className='w-full'>
+
+            <ProductCard
+              key={index}
+              
+              product={product}
+              isLiked={productCatalog.likeIds.includes(product.id)}
+              />
+              </div>
           ))}
         </div>
       </div>
 
       <div  className={stylesEmbla.embla__controls}>
         <div className={stylesEmbla.embla__dots}>
-          {scrollSnaps.map((_, index) => (
+          {showProducts.map((_, index) => (
             <DotButton
               key={index}
               onClick={() => onDotButtonClick(index)}
@@ -62,4 +73,4 @@ const EmblaCarousel: React.FC = (props) => {
   )
 }
 
-export default EmblaCarousel
+export default EmblaProductCarousel

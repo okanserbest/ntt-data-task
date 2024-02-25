@@ -18,7 +18,7 @@ const Header = () => {
           </div>
 
           <select
-            className="select select-bordered  max-w-xs"
+            className="select select-bordered  max-w-xs join-item"
             defaultValue={"Categories"}
           >
             <option className={selectOptionStyle}>Categories</option>
@@ -29,7 +29,7 @@ const Header = () => {
             <option className={selectOptionStyle}>Category Name</option>
           </select>
         </div>
-        <div className="hidden md:block ms-10 col-span-1">
+        <div className="hidden md:block ms-10 col-span-1 join-item">
           <button className="btn btn-primary bg-blue-800 w-32">
             <Search />
           </button>

@@ -12,7 +12,7 @@ const SeeAllButton = () => {
   const notHaveMore =
     productCatalog.value * 4 >= productCatalog.products.length;
 
-    if(productCatalog.isfilterLikes) return null;
+    if(productCatalog.isfilterLikes) return <div className="py-7" />;
 
   return (
     <div className="w-full text-center p-7">
