@@ -58,7 +58,6 @@ const MegaMenu = () => {
   const copies = new Array(10).fill(null);
   const newMenuItems = copies.map(() => JSON.parse(JSON.stringify(menu[0])));
 
-  console.log("newMenuItems", newMenuItems);
 
   return (
     <div className="hidden md:flex flex-col md:pb-5">

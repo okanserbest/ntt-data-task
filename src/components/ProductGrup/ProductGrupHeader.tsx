@@ -1,6 +1,11 @@
+import { setIsfilterLikes } from "@/lib/features/productSlice"
+import { AppDispatch, RootState } from "@/lib/store"
 import { Heart } from "lucide-react"
+import { useDispatch, useSelector } from "react-redux"
 
 const ProductGrupHeader = () => {
+    const productCatalog = useSelector((state: RootState) => state.product.isfilterLikes)
+    const dispatch = useDispatch<AppDispatch>();
     return (
         <div className="flex justify-between pt-10">
             <div>
@@ -9,8 +14,8 @@ const ProductGrupHeader = () => {
             <div className="flex  items-center gap-2">
                 <div><Heart /> </div>
                 <div>0 ÜRÜN </div>
-                <button className="btn btn-primary bg-blue-800 w-32">
-                Beğenilenler
+                <button onClick={()=> dispatch(setIsfilterLikes())} className="btn btn-primary bg-blue-800 w-32">
+                {productCatalog ? "Gizle" : "Beğenilenler"}
                 </button>
             </div>
         </div>
