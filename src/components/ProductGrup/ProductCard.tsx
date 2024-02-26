@@ -34,13 +34,13 @@ const ProductCard = (props: productCardProps) => {
           {product.description}
         </p>
         <p className="py-1 px-2 text-sm">{product.shippingMethod}</p>
-        <button
-          onClick={() => dispatch(changeLike(product.id))}
-          className={isLiked ? likeHeartClassName : unLikeHeartClassName}
-        >
-          <Heart />
-        </button>
       </Link>
+      <button
+        onClick={() => dispatch(changeLike(product.id))}
+        className={isLiked ? likeHeartClassName : unLikeHeartClassName}
+      >
+        <Heart />
+      </button>
     </div>
   );
 };
